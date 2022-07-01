@@ -7,7 +7,7 @@ package com.iverno.gus.userservice.person.application.adapter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.iverno.gus.userservice.person.application.bo.PersonBO;
+import com.iverno.gus.commons.general.application.bo.PersonBO;
 import com.iverno.gus.userservice.person.domain.entities.PersonEntity;
 
 

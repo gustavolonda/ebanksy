@@ -3,7 +3,7 @@ package com.iverno.gus.userservice.customer.application.adapter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.iverno.gus.userservice.customer.application.bo.CustomerBO;
+import com.iverno.gus.commons.general.application.bo.CustomerBO;
 import com.iverno.gus.userservice.customer.domain.entities.CustomerEntity;
 import com.iverno.gus.userservice.person.application.adapter.PersonAdapter;
 

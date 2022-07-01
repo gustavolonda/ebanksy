@@ -31,7 +31,7 @@ public class CustomerEntity extends BaseEntity {
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", columnDefinition = "text")
     private String id;
-	@OneToOne
+	@ManyToOne
     @JoinColumn(name = "person_id", columnDefinition = "text", referencedColumnName = "id")
     private PersonEntity personEntity;
 	private String password;

@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-public interface IBaseController  <S, ID> {
+public interface IBaseController  <M, ID> {
 	ResponseEntity<?>  getAll();
 	
 	ResponseEntity<?> get(ID id);
 	
-	ResponseEntity<?> save(S request);
+	ResponseEntity<?> save(M modelBO);
 
-	ResponseEntity<?> update(S request);
+	ResponseEntity<?> update(M modelBO);
 	
 	ResponseEntity<?> delete(ID id);
 	

@@ -4,17 +4,20 @@ import java.util.List;
 
 import com.iverno.gus.commons.general.domain.model.ResponseBase;
 
-public interface IEndPointService  <S , T, ID> {
+public interface IEndPointService  < T, ID> {
 	
-	ResponseBase saveAll(List<T> entityList);
+	List<T> saveAll(List<T> entityList);
 	
-	ResponseBase save(S request);
+	 T save(T entity);
 
-	ResponseBase update(S request);
+	 T update(T entity);
 	
-	ResponseBase delete(ID id);
+	 T delete(ID id);
 	
-	ResponseBase get(ID id);
+	 T get(ID id);
 	
-	ResponseBase getAll();
+	 List<T> getAll();
+	 
+	 ResponseBase toResponseBase(Object object);
+	 
 }
