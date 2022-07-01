@@ -31,7 +31,7 @@ public class AccountEntity extends BaseEntity {
 	    private String customerId;
 		@Column(name = "account_num")
 		private String accountNum;
-		@Column(name = "account_type")
+		@Column(name = "account_type" , length = 1)
 		private String accountType;
 		@Column(name = "initial_balance")
 		private String initialBalance;

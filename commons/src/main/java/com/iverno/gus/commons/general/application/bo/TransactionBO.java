@@ -1,5 +1,7 @@
 package com.iverno.gus.commons.general.application.bo;
 
+import javax.persistence.Column;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,10 +11,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AccountBO {
+public class TransactionBO {
 	private String id;
-	private CustomerBO customerBO;
-	private String accountNum;
-	private String accountType;
-	private String initialBalance;
+	private AccountBO accountBO;
+	private String transactionType;
+	private double value;
+	private double availableBalance;
+
 }
