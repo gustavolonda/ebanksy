@@ -1,0 +1,31 @@
+//GetALL
+//Metodo Get
+//URL localhost:8080/api/accounts
+
+//GetById
+//Metodo Get
+//URL localhost:8080/api/accounts/{id}
+
+//Save
+//Metodo Post
+//URL localhost:8080/api/accounts
+//JsonBody
+{  
+       "customerBO":{"id":"60ce6d88-bea3-4a83-a3f8-f6c2ed4804e7"},
+	"accountType":"S", 
+   "initialBalance":1200,
+   "status": true
+    }
+//"accountType":"S", //S para cuenta de ahorro(SAVINGS_BANK_ACCOUNT) o C cuenta corriente (CURRENT_BANK_ACCOUNT)
+
+//Update
+//Metodo Put
+//URL localhost:8080/api/customers
+//JsonBody
+{    "id": "990b5520-71f6-46ac-890c-f24b74cace95",
+         "customerBO":{"id":"60ce6d88-bea3-4a83-a3f8-f6c2ed4804e7"},
+	"accountType":"S", 
+   "initialBalance":1200,
+   "status": true
+}
+   

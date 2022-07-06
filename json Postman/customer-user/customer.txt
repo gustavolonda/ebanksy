@@ -1,0 +1,42 @@
+//GetALL
+//Metodo Get
+//URL localhost:8080/api/customers
+
+//GetById
+//Metodo Get
+//URL localhost:8080/api/customers/{id}
+
+//Save
+//Metodo Post
+//URL localhost:8080/api/customers
+//JsonBody
+{  
+     "personBO":{
+        
+        "name":"Gustavo Londa", 
+         "gender":"M",
+         "age":30,
+          "idCard":"0925634512",
+          "address":"23ava y La P",
+         "phone":"0992323706"
+       },
+	"password":"contrasenia14562",
+    "status":true
+}
+//Update
+//Metodo Put
+//URL localhost:8080/api/customers
+//JsonBody
+{    "id": "990b5520-71f6-46ac-890c-f24b74cace95",
+     "personBO":{
+        
+        "name":"Gustavo Londa M.", 
+         "gender":"M",
+         "age":30,
+          "idCard":"0925634512",
+          "address":"23ava y La P",
+         "phone":"0992323706"
+       },
+	"password":"contrasenia14562",
+    "status":true
+}

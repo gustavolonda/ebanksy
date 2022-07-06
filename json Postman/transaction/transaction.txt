@@ -1,0 +1,32 @@
+//GetALL
+//Metodo Get
+//URL localhost:8080/api/transactions
+
+//GetById
+//Metodo Get
+//URL localhost:8080/api/transactions/{id}
+
+
+//Save
+//Metodo Post
+//URL localhost:8080/api/transactions
+//JsonBody
+{  
+        
+    "accountId":"xxxxxxx", 
+    "transactionType":"W",
+    "value":-200,
+    "availableBalance":100
+}
+//Update
+//Metodo Put
+//URL localhost:8080/api/transactions
+//JsonBody
+{    "id": "990b5520-71f6-46ac-890c-f24b74cace95",
+     "accountId":"xxxxxxx", 
+    "transactionType":"W",
+    "value":-200,
+    "availableBalance":100,
+
+    "status":true
+}
