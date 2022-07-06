@@ -1,26 +1,22 @@
 package com.iverno.gus.userservice.person.application.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import com.iverno.gus.commons.general.application.bo.PersonBO;
+import com.iverno.gus.commons.general.application.exception.BaseException;
 import com.iverno.gus.commons.general.application.service.EndPointServiceImpl;
-import static com.iverno.gus.commons.general.config.Constants.*;
-import com.iverno.gus.commons.general.domain.model.ResponseBase;
-import static com.iverno.gus.commons.general.domain.model.StatusResponseDomain.*;
 import com.iverno.gus.userservice.person.application.adapter.PersonAdapter;
-import static com.iverno.gus.userservice.person.config.Constants.*;
 import com.iverno.gus.userservice.person.domain.entities.PersonEntity;
 import com.iverno.gus.userservice.person.domain.repository.PersonRepository;
 
+import static com.iverno.gus.userservice.person.config.Constants.*;
+
 @Service
 @Qualifier("personService")
-public class PersonService extends EndPointServiceImpl< PersonBO , PersonEntity, String>  {
+public class PersonService extends EndPointServiceImpl< PersonBO , PersonBO , PersonEntity, String>  {
 	private  String className = this.getClass().getSimpleName(); 
 	@Autowired
 	PersonRepository repository;
@@ -36,6 +32,7 @@ public class PersonService extends EndPointServiceImpl< PersonBO , PersonEntity,
 
 	@Override
 	public PersonEntity runUpdate(PersonEntity entity) {
+		PersonEntity personEntity = this.getById(entity.getId());
 		return entity;
 	}
 
@@ -46,9 +43,9 @@ public class PersonService extends EndPointServiceImpl< PersonBO , PersonEntity,
 	}
 
 	@Override
-	public PersonEntity modelBOToEntity(PersonBO personBO) {
-		if (personBO != null) {
-			return PersonAdapter.personBOToPersonEntity(personBO);
+	public PersonEntity modelBOToEntity(Object modelBO) {
+		if (modelBO != null) {
+			return PersonAdapter.personBOToPersonEntity((PersonBO)modelBO);
 		}
 		return null;
 	}
@@ -56,8 +53,8 @@ public class PersonService extends EndPointServiceImpl< PersonBO , PersonEntity,
 
 
 	@Override
-	public PersonBO entityToModelBO(PersonEntity entity) {
-		return PersonAdapter.personEntityToPersonBO(entity);
+	public PersonBO entityToModelDTO(PersonEntity entity) {
+		return null;
 	}
 	
 	@Override
@@ -67,6 +64,11 @@ public class PersonService extends EndPointServiceImpl< PersonBO , PersonEntity,
 	@Override
 	public String className() {
 		return className;
+	}
+
+	@Override
+	public BaseException validateBeforeSave(PersonEntity entity) {
+		return null;
 	}
 
 }

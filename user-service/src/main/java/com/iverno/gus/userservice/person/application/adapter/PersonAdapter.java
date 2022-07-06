@@ -1,9 +1,5 @@
 package com.iverno.gus.userservice.person.application.adapter;
 
-
-
-
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,7 +8,6 @@ import com.iverno.gus.userservice.person.domain.entities.PersonEntity;
 
 
 public class PersonAdapter {
-
 	public static List<PersonBO> personEntityListToPersonBOList(List<PersonEntity> entityList) {
 		return entityList.stream().map(p -> personEntityToPersonBO(p))
 									.collect(Collectors.toList());
@@ -41,5 +36,4 @@ public class PersonAdapter {
 								.phone(request.getPhone())
 								.build();
 	}
-
 }

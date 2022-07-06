@@ -22,19 +22,19 @@ public class BaseControllerImpl <M, ID> implements  IBaseController   <M, ID>{
 	@GetMapping("/{id}")
 	@Override
 	public ResponseEntity<?> get(@PathVariable ID id) {
-		return ResponseEntity.ok().body(iEndPointService.toResponseBase(iEndPointService.get(id)));
+		return ResponseEntity.ok().body(iEndPointService.toResponseBase(iEndPointService.getById(id)));
 	}
 
 	@PostMapping
 	@Override
 	public ResponseEntity<?> save(@RequestBody M modelBO) {
-		return ResponseEntity.ok().body(iEndPointService.toResponseBase(iEndPointService.save(modelBO)));
+		return ResponseEntity.ok().body(iEndPointService.toResponseBase(iEndPointService.save(iEndPointService.modelBOToEntity(modelBO))));
 	}
 
 	@PutMapping
 	@Override
 	public ResponseEntity<?> update(@RequestBody M modelBO) {
-		return ResponseEntity.ok().body(iEndPointService.toResponseBase(iEndPointService.save(modelBO)));
+		return ResponseEntity.ok().body(iEndPointService.toResponseBase(iEndPointService.update(iEndPointService.modelBOToEntity(modelBO))));
 	}
 
 	@DeleteMapping("/{id}")

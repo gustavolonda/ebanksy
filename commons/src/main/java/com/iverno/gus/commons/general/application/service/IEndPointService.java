@@ -14,10 +14,12 @@ public interface IEndPointService  < T, ID> {
 	
 	 T delete(ID id);
 	
-	 T get(ID id);
+	 T getById(ID id);
 	
 	 List<T> getAll();
 	 
 	 ResponseBase toResponseBase(Object object);
+	 
+	 T modelBOToEntity(Object object);
 	 
 }

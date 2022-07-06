@@ -34,5 +34,7 @@ public class AccountEntity extends BaseEntity {
 		@Column(name = "account_type" , length = 1)
 		private String accountType;
 		@Column(name = "initial_balance")
-		private String initialBalance;
+		private double initialBalance;
+		@Column(name = "available_balance")
+		private double availableBalance;
 }

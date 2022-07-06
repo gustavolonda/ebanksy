@@ -14,5 +14,7 @@ public class AccountBO {
 	private CustomerBO customerBO;
 	private String accountNum;
 	private String accountType;
-	private String initialBalance;
+	private double initialBalance;
+	private boolean status;
+	private double availableBalance;
 }

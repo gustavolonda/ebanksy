@@ -14,8 +14,10 @@ import lombok.NoArgsConstructor;
 public class TransactionBO {
 	private String id;
 	private AccountBO accountBO;
+	private String transactionDate;
 	private String transactionType;
 	private double value;
 	private double availableBalance;
+	private boolean status;
 
 }

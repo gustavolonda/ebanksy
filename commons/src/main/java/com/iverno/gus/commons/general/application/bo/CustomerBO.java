@@ -14,4 +14,5 @@ public class CustomerBO {
 	private String id;
 	private PersonBO personBO; 
 	private String password;
+	private boolean status;
 }

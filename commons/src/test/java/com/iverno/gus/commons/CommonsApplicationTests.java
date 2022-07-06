@@ -3,6 +3,7 @@ package com.iverno.gus.commons;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/*
 @SpringBootTest
 class CommonsApplicationTests {
 
@@ -10,4 +11,4 @@ class CommonsApplicationTests {
 	void contextLoads() {
 	}
 
-}
+}*/

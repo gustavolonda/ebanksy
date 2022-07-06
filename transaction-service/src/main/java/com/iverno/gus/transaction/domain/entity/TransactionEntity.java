@@ -25,14 +25,17 @@ public class TransactionEntity extends BaseEntity{
 	@Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id", columnDefinition = "text")
+	@Column(name = "id", columnDefinition = "text")
     private String id;
 	@Column(name = "account_id")
     private String accountId;
 	@Column(name = "transaction_type", length = 1)
 	private String transactionType;
+	
+	@Column(name = "transaction_value")
 	private double value;
 	@Column(name = "available_balance")
 	private double availableBalance;
+	
 	
 }
