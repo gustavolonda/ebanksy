@@ -1,0 +1,50 @@
+version: "3.5"
+services:
+  postgresql_db:
+    build:
+      context: ./postgresql
+    networks:
+      - backend  
+    environment:
+      - ec_profile=dev
+    deploy:
+      mode: replicated
+      replicas: 1
+    restart: always
+    ports:
+      - 5432:5432
+ # discovery-service:
+  #  build:
+  #    context:  ./backend/discovery
+  #  networks:
+  #    - backend
+  #  environment:
+  #    - ec_profile=dev
+  #  restart: always
+  #  ports:
+   #   - 8761:8761
+#  config-server:
+#    build:
+#      context:  ./backend/configserver
+ #   networks:
+ #     - backend
+ #   environment:
+  #    - ec_profile=dev
+ #   restart: always
+
+  #  links:
+   #   - discovery-service
+ # gateway-service:
+  #  build:
+   #   context:  ./backend/gateway-service
+   # networks:
+    #  - backend
+   # environment:
+    #  - ec_profile=dev
+    #restart: always
+   # links:
+    #  - discovery-service
+  
+networks:
+  backend:
+    name: backend-network
