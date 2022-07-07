@@ -3,6 +3,7 @@ package com.iverno.gus.account.infrastructure.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ import com.iverno.gus.commons.general.application.bo.AccountBO;
 import com.iverno.gus.commons.general.application.service.IEndPointService;
 import com.iverno.gus.commons.general.infrastructure.controller.BaseControllerImpl;
 import static com.iverno.gus.commons.general.config.Constants.*;
-
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping(REQUEST_MAPPING_ACCOUNTS)
 public class AccountController extends BaseControllerImpl<AccountBO, String> {

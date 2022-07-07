@@ -2,6 +2,7 @@ package com.iverno.gus.transaction.application.adapter;
 
 import com.iverno.gus.commons.general.application.bo.AccountBO;
 import com.iverno.gus.commons.general.application.bo.TransactionBO;
+import com.iverno.gus.commons.general.application.bo.TransactionTypeDomain;
 import com.iverno.gus.commons.general.application.dto.AccountDTO;
 import com.iverno.gus.transaction.application.dto.TransactionDTO;
 import com.iverno.gus.transaction.domain.entity.TransactionEntity;
@@ -40,6 +41,7 @@ public class TransactionAdapter {
 								.customerName("")
 								.accountNum("")
 								.accountType("")
+								.transactionType(entity.getTransactionType())
 								.initialBalance(0)
 								.value(entity.getValue())
 								.status(entity.isStatus())
@@ -56,6 +58,7 @@ public class TransactionAdapter {
 								.customerName(accountDTO.getCustomerName())
 								.accountNum(accountDTO.getAccountNum())
 								.accountType(accountDTO.getAccountType())
+								.transactionType(entity.getTransactionType())
 								.initialBalance(accountDTO.getInitialBalance())
 								.value(entity.getValue())
 								.status(entity.isStatus())

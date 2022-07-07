@@ -63,7 +63,7 @@ public class AccountService extends EndPointServiceImpl<AccountDTO, AccountBO, A
 		try {
 			AccountEntity accountEntityResul = this.getById(entity.getId());
 			accountEntityResul.setAccountNum(entity.getAccountNum());
-			accountEntityResul.setAccountNum(entity.getAccountType());
+			accountEntityResul.setAccountType(entity.getAccountType());
 			accountEntityResul.setInitialBalance(entity.getInitialBalance());
 			accountEntityResul.setAvailableBalance(entity.getAvailableBalance());
 

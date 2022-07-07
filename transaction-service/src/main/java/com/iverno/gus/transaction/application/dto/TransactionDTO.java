@@ -15,6 +15,7 @@ public class TransactionDTO {
 	private String customerName;
 	private String accountNum;
 	private String accountType;
+	private String transactionType;
 	private double initialBalance;
 	private boolean status;
 	private double value;
