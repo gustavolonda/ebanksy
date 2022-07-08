@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table'
-import Button from 'react-bootstrap/Button'
+import Account  from './account.js';
 export default function AccountRead() {
     const [APIData, setAPIData] = useState([]);
     useEffect(() => {
@@ -56,21 +55,7 @@ export default function AccountRead() {
 
                     {APIData.map((data) => {
                             return (
-                                <tr>
-                                <td>{data.accountNum}</td>
-                                <td>{data.accountType === 'S' ? <p>Cuenta de Ahorros</p> : <p>Cuenta Corriente</p>}</td>
-                                <td>{data.initialBalance}</td>
-                                <td>{data.status  ? <p>True</p> : <p>False</p>}</td>
-                                <td>{data.customerName}</td>
-                                <td>{data.availableBalance}</td>
-                                <Link to='/account/update'>
-                                    <td><Button onClick={() => setData(data)}>Update</Button></td>
-                                </Link>
-                                <Link to='/account/delete'>
-                                    <td><Button onClick={() => onDelete(data.id)}>Delete</Button></td>
-                                </Link>
-                                
-                                </tr>
+                                <Account key={data.id} {...data}/>
                             
                             )
                         })}

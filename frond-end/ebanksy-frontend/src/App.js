@@ -1,7 +1,8 @@
 
 import './App.css';
 import TransactionRead from './components/transaction/read';
-import CustomerRead from './components/customer/read';
+import CustomerRead from './components/customer/read/read';
+import CustomerCreate from './components/create/create';
 import AccountRead from './components/account/read';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Menu from './components/menu/menu.js';
@@ -11,7 +12,7 @@ import GrayLine from './components/gray_line/gray_line.js';
 function App() {
   return (
     <Router>
-      <div >
+      <div className='main' >
         <Logo/>
         <GrayLine/>
         <div>
@@ -20,8 +21,10 @@ function App() {
               <Menu></Menu>
               </div>
               <div className="col-sm-10">
-              <Route  path='/transaction/read' component={TransactionRead} />
+                <Route  path='/transaction/read' component={TransactionRead} />
                 <Route  path='/account/read' component={AccountRead} />
+
+                <Route  path='/customer/create' component={CustomerCreate} />
                 <Route  path='/customer/read' component={CustomerRead} />
 
               </div>
