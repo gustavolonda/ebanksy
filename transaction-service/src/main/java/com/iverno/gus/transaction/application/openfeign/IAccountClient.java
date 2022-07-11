@@ -16,8 +16,8 @@ import com.iverno.gus.commons.general.domain.model.ResponseBase;
 public interface IAccountClient {
 	@RequestMapping(method = RequestMethod.GET, value = GET_ACCOUNT_BY_ID)
 	ResponseBase getAccountById(@PathVariable("id") String id);
-	
 	@RequestMapping(method = RequestMethod.PUT, value = AVAILABLE_BALANCE_UPDATE)
 	ResponseBase availableBalanceUpdate(@PathVariable String id, @PathVariable double availableBalanceNew) ;
-	
+	@RequestMapping(method = RequestMethod.GET, value = GET_BY_SEARCH_TEXT)
+	ResponseBase getBySearchText(@PathVariable("searchText") String searchText);
 }

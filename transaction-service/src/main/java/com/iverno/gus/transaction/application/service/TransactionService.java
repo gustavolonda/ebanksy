@@ -18,7 +18,9 @@ import static com.iverno.gus.config.Constants.*;
 
 import static com.iverno.gus.transaction.application.adapter.TransactionAdapter.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.iverno.gus.transaction.application.dto.TransactionDTO;
 import com.iverno.gus.transaction.application.openfeign.AccountOpenFeignServiceImpl;
@@ -105,6 +107,29 @@ public class TransactionService extends EndPointServiceImpl< TransactionDTO, Tra
 		
 		try{
 			List<TransactionEntity> transactionDTOList = this.repository.findAllByActiveOrderByModifyDateDesc(true);
+			
+			return toResponseBase(transactionDTOList);
+		}catch (Exception e){
+	        
+			throw new BaseException().builder()
+			.status(ERROR)
+			.message(UNEXPECTED_ERROR)
+			.module(nameModule())
+			.exception(e)
+			.build();
+        }
+	}
+	@SneakyThrows
+	public ResponseBase<?> getBySearchText(String searchText) {
+		
+		try{
+			List<TransactionEntity> transactionDTOList = new ArrayList<>();
+			List<AccountDTO> accountDTOList = accountOpenFeignServiceImpl.getBySearchText(searchText);
+			if(accountDTOList.size() > 0) {
+				List<String> accountIdList = accountDTOList.stream().map(a -> a.getId()).collect(Collectors.toList());
+				transactionDTOList = this.repository.findDistinctByActiveAndAccountIdIn(true, accountIdList);
+	
+			}
 			
 			return toResponseBase(transactionDTOList);
 		}catch (Exception e){

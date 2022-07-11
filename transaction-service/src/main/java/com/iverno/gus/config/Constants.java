@@ -6,5 +6,6 @@ public class Constants {
 	public final static String ACCOUNT_SERVICE   = "account-service";
 	public final static String GET_ACCOUNT_BY_ID = REQUEST_MAPPING_ACCOUNTS + "/{id}";
 	public final static String AVAILABLE_BALANCE_UPDATE = REQUEST_MAPPING_ACCOUNTS + "/{id}/{availableBalanceNew}";
+    public static final String GET_BY_SEARCH_TEXT  = REQUEST_MAPPING_ACCOUNTS + "/searchText/{searchText}";
 
 }

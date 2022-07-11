@@ -62,6 +62,22 @@ public class AccountOpenFeignServiceImpl implements IAccountOpenFeignService {
         	throw e;
         }
 	}
+	@SneakyThrows
+	@Override
+	public List<AccountDTO> getBySearchText(String searchText) {
+		try{
+			List<AccountDTO> accountDTOList = new ArrayList();
+			ResponseBase responseBase =  iAccountClient.getBySearchText(searchText);
+			if(responseBase.getResult() != null) {
+				List<?> resultList = (List<?>) responseBase.getResult();
+				accountDTOList = resultList.stream().map(c -> (AccountDTO) Util.linkedHashMapToObject((LinkedHashMap<String, Object>) c,AccountDTO.class)).collect(Collectors.toList());
+			}
+			return accountDTOList;
+		 }catch (Exception e){
+		        
+	        	throw e;
+	        }
+	}
 
 }
 
