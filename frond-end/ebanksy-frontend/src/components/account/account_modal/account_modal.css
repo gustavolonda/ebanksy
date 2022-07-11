@@ -1,0 +1,18 @@
+.container-modal{
+    margin: 70%;
+    max-width: 400px;
+  }
+  .customer-table{
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+.footer {
+
+    bottom: 70px;
+    width: 120px;
+    margin: 20px;
+}
+.center-button {
+    width: 120px;
+    margin: 0 auto;
+}
