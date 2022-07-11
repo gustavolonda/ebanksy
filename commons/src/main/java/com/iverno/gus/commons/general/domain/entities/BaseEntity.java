@@ -32,4 +32,6 @@ public class BaseEntity {
 
     @Column(columnDefinition = "boolean default true")
     private boolean status;
+    @Column(columnDefinition = "boolean default true")
+    private boolean active;
 }

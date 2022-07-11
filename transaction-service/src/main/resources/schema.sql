@@ -1,6 +1,7 @@
     create table transaction (
        id varchar(255) not null,
         status boolean default true,
+        active boolean default true,
         account_id varchar(255),
         available_balance DOUBLE PRECISION,
         transaction_type varchar(1),

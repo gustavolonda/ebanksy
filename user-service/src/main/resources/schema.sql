@@ -1,6 +1,7 @@
 create table person (
        id  varchar(255) NOT NULL,
         status boolean default true,
+        active boolean default true,
         address varchar(255),
         age integer not null,
         gender varchar(255),
@@ -15,6 +16,7 @@ create table person (
 create table customer (
 	id  varchar(255) NOT NULL,
 	status boolean default true,
+	active boolean default true,
 	password varchar(255),
 	person_id text,
     create_date timestamp,

@@ -178,6 +178,7 @@ public abstract class EndPointServiceImpl< D, M , T, ID>   implements IEndPointS
 	public abstract String nameModule();
 	public abstract String className();
 	public abstract BaseException validateBeforeSave(T entity);
+
 	
 }
 

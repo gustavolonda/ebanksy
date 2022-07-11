@@ -48,23 +48,9 @@ public class TransactionValidate {
 										.exception(exception)
 										.build();
 			}
-			if (accountDTO.getDailyWithdrawalLimit() == 0 && isWithdraw) {
-				return new BaseException().builder()
-										.status(ERROR)
-										.message("Saldo no disponible")
-										.module(MODULE_TRASACTION)
-										.exception(exception)
-										.build();
-			}
+	
 			
-			if (accountDTO.getDailyWithdrawalLimit() < ((-1)*entity.getValue()) && isWithdraw) {
-				return new BaseException().builder()
-										.status(ERROR)
-										.message("Cupo diario Excedido")
-										.module(MODULE_TRASACTION)
-										.exception(exception)
-										.build();
-			}
+			
 			
 			double availableBalance = accountDTO.getAvailableBalance() + entity.getValue();
 			if (availableBalance <= 0 && isWithdraw) {

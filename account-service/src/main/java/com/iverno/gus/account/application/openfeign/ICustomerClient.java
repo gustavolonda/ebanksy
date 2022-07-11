@@ -13,5 +13,7 @@ import com.iverno.gus.commons.general.domain.model.ResponseBase;
 public interface ICustomerClient {
 	@RequestMapping(method = RequestMethod.GET, value = GET_CUSTOMER_BY_ID)
 	ResponseBase getCustomerById(@PathVariable("id") String id);
+	@RequestMapping(method = RequestMethod.GET, value = GET_BY_SEARCH_TEXT)
+	ResponseBase getBySearchText(@PathVariable("searchText") String searchText);
 
 }

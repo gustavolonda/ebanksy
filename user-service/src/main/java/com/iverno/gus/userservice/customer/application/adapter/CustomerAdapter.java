@@ -43,6 +43,10 @@ public class CustomerAdapter {
 									.address(entity.getPersonEntity() != null ? entity.getPersonEntity().getAddress():"")
 									.password(entity.getPassword())
 									.status(entity.isStatus())
+									.gender(entity.getPersonEntity() != null ? entity.getPersonEntity().getGender():"")
+									.age(entity.getPersonEntity() != null ? entity.getPersonEntity().getAge():0)
+									.idCard(entity.getPersonEntity() != null ? entity.getPersonEntity().getIdCard():"")
+									.phone(entity.getPersonEntity() != null ? entity.getPersonEntity().getPhone():"")
 									.build();
 	}
 

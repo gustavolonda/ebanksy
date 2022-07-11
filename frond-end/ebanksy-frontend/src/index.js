@@ -1,11 +1,9 @@
 import React from 'react';
 
 import './index.css';
-import App from './App';
+import App from './router/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createRoot } from 'react-dom/client';
-
 import ReactDOM from 'react-dom';
 ReactDOM.render(<App />, document.getElementById('root'));
 

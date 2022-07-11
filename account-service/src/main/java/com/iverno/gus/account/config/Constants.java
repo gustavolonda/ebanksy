@@ -6,5 +6,7 @@ public class Constants {
 	public static final String USER_SERVICE   = "user-service";
     public static final String GET_CUSTOMER_BY_ID  = REQUEST_MAPPING_CUSTOMERS + "/{id}";
 	public static final double MAX_DAILY_WITHDRAWAL_LIMIT_DEFAULT   = 1000;
+    public static final String GET_BY_SEARCH_TEXT  = REQUEST_MAPPING_CUSTOMERS + "/searchText/{searchText}";
+
 
 }

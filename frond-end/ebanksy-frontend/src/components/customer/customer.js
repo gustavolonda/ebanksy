@@ -7,7 +7,8 @@ const Customer = ({
     name, 
     address, 
     password, 
-    status
+    status,
+    onDelete
     
 }) => {
   const history = useHistory();
@@ -18,8 +19,8 @@ const Customer = ({
     <td>{address}</td>
     <td>{password}</td>
     <td>{status  ? <p>True</p> : <p>False</p>}</td>
-    <td><Button className="btn btn-primary" onClick={() => history.push(`/customer/update?id=${id}`)}>Editar</Button></td>
-    <td><Button className="btn btn-danger" onClick={() => history.push(`/customer/delete?id=${id}`)}>Eliminar</Button></td>
+    <td><Button className="btn btn-primary" onClick={() => history.push(`/customer/update/${id}`)}>Editar</Button></td>
+    <td><Button className="btn btn-danger" onClick={() => onDelete(id)}>Eliminar</Button></td>
     </tr>
   );
 };

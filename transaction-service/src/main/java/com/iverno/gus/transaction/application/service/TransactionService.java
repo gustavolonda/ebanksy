@@ -10,9 +10,16 @@ import com.iverno.gus.commons.general.application.bo.TransactionTypeDomain;
 import com.iverno.gus.commons.general.application.dto.AccountDTO;
 import com.iverno.gus.commons.general.application.exception.BaseException;
 import com.iverno.gus.commons.general.application.service.EndPointServiceImpl;
+import com.iverno.gus.commons.general.domain.model.ResponseBase;
+
+import static com.iverno.gus.commons.general.config.Constants.UNEXPECTED_ERROR;
+import static com.iverno.gus.commons.general.domain.model.ResponseBaseStatusDomain.ERROR;
 import static com.iverno.gus.config.Constants.*;
 
 import static com.iverno.gus.transaction.application.adapter.TransactionAdapter.*;
+
+import java.util.List;
+
 import com.iverno.gus.transaction.application.dto.TransactionDTO;
 import com.iverno.gus.transaction.application.openfeign.AccountOpenFeignServiceImpl;
 import com.iverno.gus.transaction.application.validate.TransactionValidate;
@@ -43,17 +50,19 @@ public class TransactionService extends EndPointServiceImpl< TransactionDTO, Tra
 		double availableBalance = accountDTO.getAvailableBalance() + entity.getValue();
 		AccountDTO  accountDTOResult = accountOpenFeignServiceImpl.availableBalanceUpdate(entity.getAccountId(), availableBalance);
 		entity.setAvailableBalance(availableBalance);
+		entity.setActive(true);
 		return entity;
 	}
 	@Override
 	public TransactionEntity runUpdate(TransactionEntity entity) {
 		TransactionEntity transactionEntity = this.getById(entity.getId());
 		entity.setCreateDate(transactionEntity.getCreateDate());
-		return entity;
+		transactionEntity.setStatus(entity.isStatus());
+		return transactionEntity;
 	}
 	@Override
 	public TransactionEntity statusChangeDelete(TransactionEntity entity) {
-		entity.setStatus(false);
+		entity.setActive(false);
 		return entity;
 	}
 	@Override
@@ -90,5 +99,22 @@ public class TransactionService extends EndPointServiceImpl< TransactionDTO, Tra
 	@Override
 	public BaseException validateBeforeSave(TransactionEntity entity) {
 		return transactionValidate.validateBeforeSave(entity);
+	}
+	@SneakyThrows
+	public ResponseBase<?> getListActive() {
+		
+		try{
+			List<TransactionEntity> transactionDTOList = this.repository.findAllByActiveOrderByModifyDateDesc(true);
+			
+			return toResponseBase(transactionDTOList);
+		}catch (Exception e){
+	        
+			throw new BaseException().builder()
+			.status(ERROR)
+			.message(UNEXPECTED_ERROR)
+			.module(nameModule())
+			.exception(e)
+			.build();
+        }
 	}
 }

@@ -36,6 +36,26 @@ public class CustomerOpenFeignServiceImpl implements ICustomerOpenFeignService {
         	throw e;
         }
 	}
+	@SneakyThrows
+	@Override
+	public List<CustomerDTO> getBySearchText(String searchText) {
+		try{
+			List<CustomerDTO> customerDTOList = new ArrayList();
+			ResponseBase responseBase =  iCustomerClient.getBySearchText(searchText);
+			if(responseBase.getResult() != null) {
+				List<?> resultList = (List<?>) responseBase.getResult();
+				customerDTOList = resultList.stream().map(c ->(CustomerDTO) Util.linkedHashMapToObject((LinkedHashMap<String, Object>) c,CustomerDTO.class)).collect(Collectors.toList());
+				
+			}
+			return customerDTOList;
+
+        }catch (Exception e){
+        
+        	throw e;
+        }
+	}
+
+
 
 }
 

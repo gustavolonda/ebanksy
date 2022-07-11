@@ -1,9 +1,9 @@
 import React from 'react';
-
+import "./search.css"
 const Search = ({onChange
       }) => {
               return (
-                <div class="form-outline">
+                <div className="form-outline">
                    
                       < input
                         className="form-control"

@@ -1,33 +1,28 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table'
-import Customer  from '../../customer/customer.js';
-import { useHistory } from 'react-router-dom';
-import Button from 'react-bootstrap/Button'
+import Transaction  from '../../transaction/transaction.js';
 import Search from '../../search/search';
-import './read.css';
-export default function CustomerRead() {
+import Button from 'react-bootstrap/Button'
+import { useHistory } from 'react-router-dom';
+
+export default function TransactionRead() {
     const [APIData, setAPIData] = useState([]);
     const history = useHistory();
+
+    useEffect(() => {
+        getAll();
+    }, []);
     const getAll = () => {
-        axios.get(`http://localhost:8080/api/customers/getListActive`)
+        axios.get(`http://localhost:8080/api/transactions/getListActive`)
         .then((response) => {
             console.log(response.data)
             setAPIData(response.data.result);
         })
     }
-    useEffect(() => {
-        getAll();
-    }, []);
-    const onDelete = (id) => {
-        axios.delete(`http://localhost:8080/api/customers/${id}`)
-        .then(() => {
-             history.push('/');
-        })
-    }
     const onSearchChange = (searchText) => {
         if(searchText.length > 2 ){
-            axios.get(`http://localhost:8080/api/customers/searchText/${searchText}`)
+            axios.get(`http://localhost:8080/api/transactions/searchText/${searchText}`)
                 .then((response) => {
                     setAPIData(response.data.result);
                 })
@@ -35,33 +30,42 @@ export default function CustomerRead() {
           if(searchText.length === 0 )
             getAll();
       };
+    const onDelete = (id) => {
+        axios.delete(`http://localhost:8080/api/transactions/${id}`)
+        .then(() => {
+            window.location.reload(false);
+        })
+    }
     return (
-        
         <div className='container-read'>
-            <h2 className='title'>Clientes</h2>
+            <h2 className='title'>Movimientos</h2>
             <div className="row search">
                <div className="col-sm-10">
                <Search onChange={onSearchChange} />
 
               </div>
               <div className="col-sm-2">
-                    <Button className="btn btn-warning buttun-new" onClick={() => history.push(`/customer/create`)}>Nuevo</Button>
+                    <Button className="btn btn-warning buttun-new" onClick={() => history.push(`/transaction/create`)}>Nuevo</Button>
               </div>
               
           </div>
             <Table striped bordered hover className='float-start '>
                 <thead>
                     <tr>
-                    <th>Nombre</th>
-                    <th>Dirección</th>
-                    <th>Contraseña</th>
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>Numero Cuenta</th>
+                    <th>Tipo</th>
+                    <th>Saldo Inicial</th>
                     <th>Estado</th>
+                    <th>Movimiento</th>
+                    <th>Saldo Disponible</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     {APIData.map((data) => {
-                            return (<Customer key={data.id} {...data} onDelete={onDelete}/>)
+                            return (<Transaction key={data.id} {...data} onDelete={onDelete}/>)
                         })}
                     
                 </tbody>

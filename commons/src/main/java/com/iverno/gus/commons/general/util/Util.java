@@ -51,5 +51,16 @@ public class Util {
   
         return sb.toString();
     }
+    
+    public static boolean isDouble(String str) {
+    	try {
+    		double num = Double.parseDouble(str);
+    		return true;
+			
+		} catch (NumberFormatException nE) {
+			return false;
+		}
+   
+	}
 
 }

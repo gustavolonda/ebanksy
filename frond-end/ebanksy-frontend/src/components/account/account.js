@@ -9,7 +9,8 @@ const Account = ({
     initialBalance, 
     status,
     customerName,
-    availableBalance
+    availableBalance,
+    onDelete
 }) => {
   const history = useHistory();
 
@@ -22,8 +23,8 @@ const Account = ({
     <td>{customerName}</td>
     <td>{availableBalance}</td>
     <td>{status  ? <p>True</p> : <p>False</p>}</td>
-    <td><Button className="btn btn-primary" onClick={() => history.push(`/account/update?id=${id}`)}>Editar</Button></td>
-    <td><Button className="btn btn-danger" onClick={() => history.push(`/account/delete?id=${id}`)}>Eliminar</Button></td>
+    <td><Button className="btn btn-primary" onClick={() => history.push(`/account/update/${id}`)} >Editar</Button></td>
+    <td><Button className="btn btn-danger" onClick={() => onDelete(id)}>Eliminar</Button></td>
     </tr>
   );
 };

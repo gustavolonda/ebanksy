@@ -16,6 +16,7 @@ public class AccountDTO {
 	private double initialBalance;
 	private boolean status;
 	private String customerName;
+	private String customerId;
 	private double availableBalance;
 	private double dailyWithdrawalLimit;
 
