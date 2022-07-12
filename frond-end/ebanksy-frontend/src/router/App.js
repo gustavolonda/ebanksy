@@ -11,6 +11,8 @@ import CustomerUpdate from '../components/customer/update/update';
 import AccountRead from '../components/account/read/read';
 import AccountCreate from '../components/account/create/create';
 import AccountUpdate from '../components/account/update/update';
+import Report from '../components/reports/report';
+
 import { BrowserRouter as Router, Route, Redirect  } from 'react-router-dom'
 import Menu from '../components/menu/menu.js';
 import Logo from '../components/logo/logo.js';
@@ -39,6 +41,9 @@ function App() {
                 <Route  path='/customer/create' component={CustomerCreate} />
                 <Route  path='/customer/read' component={CustomerRead} exact={true}/>
                 <Route  path='/customer/update/:id' component={CustomerUpdate}/>
+
+                <Route  path='/reports/report' component={Report}/>
+
                 <Route exact path="/" render={() => (<Redirect to="/customer/read" />)} /> 
               </div>
           </div>

@@ -63,4 +63,8 @@ public class Util {
    
 	}
 
+	public static String StringEmpty() {
+		return "";
+	}
+
 }

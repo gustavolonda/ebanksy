@@ -11,7 +11,7 @@ import com.iverno.gus.transaction.domain.entity.TransactionEntity;
 
 @Repository
 public interface TransactionRespository extends JpaRepository<TransactionEntity, String> {
-	List<TransactionEntity> findByCreateDateBetween(Date to, Date from);
+	List<TransactionEntity> findByCreateDateBetween(Date from,Date to);
 	List<TransactionEntity> findAllByActiveOrderByModifyDateDesc(boolean active);
 	List<TransactionEntity> findDistinctByActiveAndAccountIdIn(boolean active, List<String> accountIdList);
 

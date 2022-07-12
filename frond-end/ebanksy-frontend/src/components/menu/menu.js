@@ -18,7 +18,7 @@ function Menu() {
               
               </li>
               <li key="report" className="nav-item">
-                <Link className="nav-link" to="/">Reportes</Link>
+                <Link className="nav-link" to="/reports/report">Reportes</Link>
               </li>
             </ul>
           </div>

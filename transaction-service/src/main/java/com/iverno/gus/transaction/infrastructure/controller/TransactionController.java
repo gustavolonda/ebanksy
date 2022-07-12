@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import static com.iverno.gus.commons.general.config.Constants.*;
 
+import javax.servlet.http.HttpServletResponse;
+
 import com.iverno.gus.commons.general.application.bo.TransactionBO;
 import com.iverno.gus.commons.general.application.service.IEndPointService;
 import com.iverno.gus.commons.general.infrastructure.controller.BaseControllerImpl;
@@ -34,4 +36,11 @@ public class TransactionController extends BaseControllerImpl<TransactionBO, Str
 		TransactionService transactionService = (TransactionService) iEndPointService;
 		return ResponseEntity.ok().body(transactionService.getBySearchText(searchText));
 	}
+	 @GetMapping("/report/{dateRage}")
+	 public void exportToPDF(@PathVariable String dateRage,HttpServletResponse response) {
+			TransactionService transactionService = (TransactionService) iEndPointService;
+			transactionService.exportPdf(response,dateRage);
+	      
+	 }
+
 }
