@@ -6,14 +6,20 @@ import './read.css';
 import Search from '../../search/search';
 import Button from 'react-bootstrap/Button'
 import { useHistory } from 'react-router-dom';
+export const urlGet = `http://localhost:8080/api/accounts/getListActive`;
+export const fetchAccounts = async () => {
+    try {
+      return await axios.get(`${urlGet}`);
+    } catch (e) {
+      return [];
+    }
+  };
 export default function AccountRead() {
     const history = useHistory();
     const getAll = () => {
-        axios.get(`http://localhost:8080/api/accounts/getListActive`)
-        .then((response) => {
-            console.log(response.data)
-            setAPIData(response.data.result);
-        })
+        fetchAccounts().then((response) => {
+                    setAPIData(response.data.result);
+                })
     }
     const onSearchChange = (searchText) => {
         if(searchText.length > 2 ){

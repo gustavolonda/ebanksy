@@ -6,12 +6,19 @@ import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 import Search from '../../search/search';
 import './read.css';
+export const urlGet = `http://localhost:8080/api/customers/getListActive`;
+export const fetchCustomers = async () => {
+    try {
+      return await axios.get(`${urlGet}`);
+    } catch (e) {
+      return [];
+    }
+  };
 export default function CustomerRead() {
     const [APIData, setAPIData] = useState([]);
     const history = useHistory();
     const getAll = () => {
-        axios.get(`http://localhost:8080/api/customers/getListActive`)
-        .then((response) => {
+        fetchCustomers().then((response) => {
             console.log(response.data)
             setAPIData(response.data.result);
         })
