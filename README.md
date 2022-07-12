@@ -10,3 +10,6 @@
 
 #### Movimientos
 <code><p align="center"><img height="350" src="https://github.com/gustavolonda/ebanksy/blob/master/frond-end/interface/transaction.png" title="app" style="display: block;margin-left: auto;margin-right: auto;"></p></code>
+
+#### Reporte
+<code><p align="center"><img height="350" src="https://github.com/gustavolonda/ebanksy/blob/master/frond-end/interface/report.png" title="app" style="display: block;margin-left: auto;margin-right: auto;"></p></code>
